@@ -7,14 +7,14 @@ let mongoose = require("mongoose");
 let book = require("../models/books");
 
 /* GET books List page. READ */
-router.get("/books", (req, res, next) => {
+router.get("/", (req, res, next) => {
   // find all books in the books collection
   book.find((err, books) => {
     if (err) {
       return console.error(err);
     } else {
       res.render("books/index", {
-        title: "books",
+        title: "Books",
         books: books,
       });
     }
@@ -61,7 +61,7 @@ router.get("/details/:id", (req, res, next) => {
 });
 
 // POST - process the information passed from the details form and update the document
-router.post("/details/:id", (req, res, next) => {
+router.post("books/details/:id", (req, res, next) => {
   let id = req.params.id;
 
   let updatedBook = book({
