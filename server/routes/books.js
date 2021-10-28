@@ -7,14 +7,14 @@ let mongoose = require("mongoose");
 let book = require("../models/books");
 
 /* GET books List page. READ */
-router.get("/books", (req, res, next) => {
+router.get("/", (req, res, next) => {
   // find all books in the books collection
   book.find((err, books) => {
     if (err) {
       return console.error(err);
     } else {
       res.render("books/index", {
-        title: "Books",
+        title: "books",
         books: books,
       });
     }
