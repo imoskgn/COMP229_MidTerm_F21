@@ -4,12 +4,12 @@ let router = express.Router();
 let mongoose = require("mongoose");
 
 // define the book model
-let book = require("../models/books");
+let Book = require("../models/books");
 
 /* GET books List page. READ */
 router.get("/", (req, res, next) => {
   // find all books in the books collection
-  book.find((err, books) => {
+  Book.find((err, books) => {
     if (err) {
       return console.error(err);
     } else {
@@ -23,7 +23,7 @@ router.get("/", (req, res, next) => {
 
 //  GET the Book Details page in order to add a new Book
 router.get("/add", (req, res, next) => {
-  res.render("books/add", { title: "Add book" });
+  res.render("books/add", { title: "Add book"});
 });
 
 // POST process the Book Details page and create a new Book - CREATE
@@ -35,7 +35,7 @@ router.post("/add", (req, res, next) => {
     Author: req.body.author,
     Genre: req.body.genre
   });
-  book.create(newBook, (err, Contact) => {
+  Book.create(newBook, (err, Contact) => {
     if (err) {
       console.log(err);
       res.end(err);
@@ -50,7 +50,7 @@ router.post("/add", (req, res, next) => {
 router.get("/details/:id", (req, res, next) => {
   let id = req.params.id;
 
-  book.findById(id, (err, books) => {
+  Book.findById(id, (err, books) => {
     if (err) {
       console.log(err);
       res.end(err);
@@ -72,7 +72,7 @@ router.post("books/details/:id", (req, res, next) => {
     Author: req.body.author,
     Genre: req.body.genre
   });
-  book.updateOne({ _id: id }, updatedBook, (err) => {
+  Book.updateOne({ _id: id }, updatedBook, (err) => {
     if (err) {
       console.log(err);
       res.end(err);
@@ -85,7 +85,7 @@ router.post("books/details/:id", (req, res, next) => {
 // GET - process the delete by user id
 router.get("/delete/:id", (req, res, next) => {
   let id = req.params.id;
-  book.remove({ _id: id }, (err) => {
+  Book.remove({ _id: id }, (err) => {
     if (err) {
       console.log(err);
       res.end(err);
