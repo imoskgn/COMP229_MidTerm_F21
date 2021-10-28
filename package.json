@@ -29,7 +29,7 @@
     "npm": "^6.0.0"
   },
   "description": "## Welcome to the MidTerm Project - the Favourite Book List App",
-  "main": "app.js",
+  "main": "server.js",
   "devDependencies": {
     "@types/body-parser": "^1.19.0",
     "@types/connect-flash": "0.0.34",
@@ -53,5 +53,9 @@
     "EJS"
   ],
   "author": "Oscar Gonzalez - 301185878",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/imoskgn/COMP229_MidTerm_F21/issues"
+  },
+  "homepage": "https://github.com/imoskgn/COMP229_MidTerm_F21#readme"
 }
