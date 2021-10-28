@@ -61,7 +61,7 @@ router.get("/details/:id", (req, res, next) => {
 });
 
 // POST - process the information passed from the details form and update the document
-router.post("books/details/:id", (req, res, next) => {
+router.post("/details/:id", (req, res, next) => {
   let id = req.params.id;
 
   let updatedBook = book({
